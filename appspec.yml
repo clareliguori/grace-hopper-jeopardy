@@ -23,3 +23,7 @@ hooks:
     - location: deployment_scripts/stop_server
       timeout: 300
       runas: root
+  ValidateService:
+    - location: deployment_scripts/validate_application
+      timeout: 300
+      runas: ec2-user
