@@ -1,22 +1,21 @@
 version: 0.0
 os: linux
 files:
-  - source: /index.html
-    destination: /var/www/html/
-  - source: /data.js
-    destination: /var/www/html/
-  - source: /assets
-    destination: /var/www/html/assets
-  - source: /build
-    destination: /var/www/html/build
+  - source: /
+    destination: /home/ec2-user/grace-hopper-jeopardy
 hooks:
   BeforeInstall:
     - location: deployment_scripts/install_dependencies
       timeout: 300
       runas: root
+  AfterInstall:
     - location: deployment_scripts/build_application
       timeout: 300
       runas: root
+    - location: deployment_scripts/copy_application
+      timeout: 300
+      runas: root
+  ApplicationStart:
     - location: deployment_scripts/start_server
       timeout: 300
       runas: root

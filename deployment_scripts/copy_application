@@ -3,5 +3,4 @@ set -ex
 
 cd /home/ec2-user/grace-hopper-jeopardy
 
-npm install
-npm run webpack
+cp -a index.html data.js assets build /var/www/html/
