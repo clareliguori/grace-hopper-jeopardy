@@ -386,6 +386,11 @@ Outputs:
     Export:
       Name: !Join [ ":", [ !Ref "AWS::StackName", CodeDeployApplication ] ]
 
+  CodeDeployUrl:
+    Description: The AWS console URL for the CodeDeploy application
+    Value:
+      Fn::Sub: 'https://${AWS::Region}.console.aws.amazon.com/codedeploy/home?region=${AWS::Region}#/applications/${CodeDeployApplication}'
+
   CodeDeployRole:
     Description: A reference to the created CodeDeploy role
     Value: !GetAtt CodeDeployRole.Arn

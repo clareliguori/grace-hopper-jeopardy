@@ -92,7 +92,8 @@ Resources:
 Outputs:
   Url:
     Description: Workshop application URL
-    Value: !GetAtt LoadBalancer.DNSName
+    Value:
+      Fn::Sub: 'http://${LoadBalancer.DNSName}'
   DeploymentGroup:
     Description: Workshop application deployment group
     Value: !Ref DeploymentGroup
