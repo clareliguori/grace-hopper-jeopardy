@@ -15,16 +15,12 @@ This application can be deployed to Amazon EC2 using AWS CloudFormation and AWS 
 
 Create shared resources (create once):
 ```
-aws cloudformation create-stack --stack-name my-workshop-shared-resources --template-body file://cloudformation_templates/shared_resources.yml --capabilities CAPABILITY_NAMED_IAM --parameters ParameterKey=WorkshopName,ParameterValue="my-workshop"
-
-aws cloudformation wait stack-create-complete --stack-name my-workshop-shared-resources
+aws cloudformation deploy --stack-name my-workshop-shared-resources --template-file cloudformation_templates/shared_resources.yml --capabilities CAPABILITY_NAMED_IAM --parameter-overrides WorkshopName="my-workshop"
 ```
 
 Create website resources (can create multiple stacks for a workshop):
 ```
-aws cloudformation create-stack --stack-name my-workshop-jeopardy-1 --template-body file://cloudformation_templates/application.yml --parameters ParameterKey=SharedResourceStack,ParameterValue="my-workshop-shared-resources"
-
-aws cloudformation wait stack-create-complete --stack-name my-workshop-jeopardy-1
+aws cloudformation deploy --stack-name my-workshop-jeopardy-1 --template-file cloudformation_templates/application.yml --parameter-overrides SharedResourceStack="my-workshop-shared-resources"
 ```
 
 Go to the CodeDeploy console:
