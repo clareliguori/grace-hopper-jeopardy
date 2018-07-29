@@ -438,3 +438,9 @@ Outputs:
     Value: !Ref PrivateHttpIngressSecurityGroup
     Export:
       Name: !Join [ ":", [ !Ref "AWS::StackName", PrivateHttpIngressSecurityGroup ] ]
+
+  InstanceProfile:
+    Description: EC2 instance profile for application
+    Value: !Ref InstanceProfile
+    Export:
+      Name: !Join [ ":", [ !Ref "AWS::StackName", InstanceProfile ] ]
