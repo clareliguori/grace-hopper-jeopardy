@@ -66,6 +66,19 @@ Resources:
                 Effect: "Allow"
                 Action: "s3:getObject"
                 Resource: !Sub arn:aws:s3:::${DeploymentBucket}/*
+        -
+          PolicyName: "allow-logging"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              -
+                Effect: "Allow"
+                Action:
+                  - "logs:CreateLogGroup"
+                  - "logs:CreateLogStream"
+                  - "logs:PutLogEvents"
+                  - "logs:DescribeLogStreams"
+                Resource: !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:${CodeDeployApplication}/*
 
   InstanceProfile:
     Type: "AWS::IAM::InstanceProfile"

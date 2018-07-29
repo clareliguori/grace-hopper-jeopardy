@@ -1,0 +1,13 @@
+#!/bin/bash
+set -ex
+
+cd /home/ec2-user/grace-hopper-jeopardy
+
+yum install -y awslogs gettext jq
+
+envsubst < config/awslogs.conf > /etc/awslogs/awslogs.conf
+AWS_REGION=`curl --silent http://169.254.169.254/latest/dynamic/instance-identity/document | jq -r .region`
+sed -i -e "s/region = us-east-1/region = $AWS_REGION/g" /etc/awslogs/awscli.conf
+
+service awslogs restart
+chkconfig awslogs on
