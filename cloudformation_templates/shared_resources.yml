@@ -9,38 +9,6 @@ Parameters:
     Type: String
     Default: ghc-workshop
 
-Mappings:
-  RegionToAMI:
-    # Amazon Linux AMI 2017.09.1 (HVM (SSD), EBS-Backed, 64-bit
-    us-east-1:
-      default: ami-97785bed
-    us-east-2:
-      default: ami-f63b1193
-    us-west-2:
-      default: ami-f2d3638a
-    us-west-1:
-      default: ami-824c4ee2
-    ca-central-1:
-      default: ami-a954d1cd
-    eu-west-1:
-      default: ami-d834aba1
-    eu-central-1:
-      default: ami-5652ce39
-    eu-west-2:
-      default: ami-403e2524
-    eu-west-3:
-      default: ami-8ee056f3
-    ap-southeast-1:
-      default: ami-68097514
-    ap-southeast-2:
-      default: ami-942dd1f6
-    ap-northeast-1:
-      default: ami-ceafcba8
-    ap-northeast-2:
-      default: ami-863090e8
-    sa-east-1:
-      default: ami-84175ae8
-
 Resources:
   CodeDeployApplication:
     Type: "AWS::CodeDeploy::Application"
@@ -104,27 +72,6 @@ Resources:
     Properties:
       Roles:
         - Ref: InstanceRole
-
-  LaunchConfig:
-    Type: AWS::AutoScaling::LaunchConfiguration
-    Properties:
-      AssociatePublicIpAddress: false
-      ImageId:
-        !FindInMap [ RegionToAMI, !Ref "AWS::Region", default ]
-      InstanceType: t2.micro
-      SecurityGroups:
-        - Ref: PrivateHttpIngressSecurityGroup
-      IamInstanceProfile:
-        Ref: InstanceProfile
-      UserData:
-        Fn::Base64: !Sub |
-          #!/bin/bash
-          yum -y update
-          yum install -y ruby
-          cd /home/ec2-user
-          curl -O https://aws-codedeploy-${AWS::Region}.s3.amazonaws.com/latest/install
-          chmod +x ./install
-          ./install auto
 
   VPC:
     Type: AWS::EC2::VPC
@@ -402,12 +349,6 @@ Outputs:
     Value: !Ref DeploymentBucket
     Export:
       Name: !Join [ ":", [ !Ref "AWS::StackName", DeploymentBucket ] ]
-
-  LaunchConfig:
-    Description: A reference to the created launch configuration
-    Value: !Ref LaunchConfig
-    Export:
-      Name: !Join [ ":", [ !Ref "AWS::StackName", LaunchConfig ] ]
 
   VPC:
     Description: A reference to the created VPC

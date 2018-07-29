@@ -11,6 +11,9 @@ Parameters:
     MaxLength: 255
     AllowedPattern: "^[a-zA-Z][-a-zA-Z0-9]*$"
     Default: GraceHopperWorkshopSharedResources
+  LatestAmiId:
+    Type: "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>"
+    Default: "/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-gp2"
 
 Resources:
   DeploymentGroup:
@@ -26,6 +29,28 @@ Resources:
       AutoScalingGroups:
       - Ref: AutoScalingGroup
 
+  LaunchConfig:
+    Type: AWS::AutoScaling::LaunchConfiguration
+    Properties:
+      AssociatePublicIpAddress: false
+      ImageId: !Ref LatestAmiId
+      InstanceType: t2.micro
+      SecurityGroups:
+        - Fn::ImportValue:
+            !Sub "${SharedResourceStack}:PrivateHttpIngressSecurityGroup"
+      IamInstanceProfile:
+        Fn::ImportValue:
+          !Sub "${SharedResourceStack}:InstanceProfile"
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          yum -y update
+          yum install -y ruby
+          cd /home/ec2-user
+          curl -O https://aws-codedeploy-${AWS::Region}.s3.amazonaws.com/latest/install
+          chmod +x ./install
+          ./install auto
+
   AutoScalingGroup:
     Type: AWS::AutoScaling::AutoScalingGroup
     Properties:
@@ -33,9 +58,7 @@ Resources:
       HealthCheckGracePeriod: 300
       MinSize: 3
       MaxSize: 3
-      LaunchConfigurationName:
-        Fn::ImportValue:
-          !Sub "${SharedResourceStack}:LaunchConfig"
+      LaunchConfigurationName: !Ref LaunchConfig
       VPCZoneIdentifier:
         Fn::Split:
         - ","
