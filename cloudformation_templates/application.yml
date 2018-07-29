@@ -108,7 +108,7 @@ Resources:
       HealthCheckIntervalSeconds: 30
       UnhealthyThresholdCount: 2
       HealthyThresholdCount: 2
-      HealthCheckPath: /healthcheck
+      HealthCheckPath: /
       Port: 80
       Protocol: HTTP
       VpcId:
