@@ -32,7 +32,7 @@ Select the CodeDeploy deployment group created for the new website stack (starts
 * Go to Actions -> Deploy new revision
 * Select "My application is stored in GitHub" for the Repository type
 * Connect your account to GitHub if you have not already under the "Connect to GitHub" section.
-* Enter "clareliguori/grace-hopper-jeopardy" for the repository name, and "52d25ef1715ff2cad71853da67329ce436eb57a0" for the commit ID
+* Enter "clareliguori/grace-hopper-jeopardy" for the repository name, and "a5a9d6ed08165027b2183192f91224910c6359e6" for the commit ID
 
 Once the deployment completes, go to the application URL:
 ```
