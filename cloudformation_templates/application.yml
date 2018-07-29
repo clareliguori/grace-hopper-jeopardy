@@ -14,7 +14,7 @@ Parameters:
 
 Resources:
   DeploymentGroup:
-    Type: "AWS::CodeDeploy::DeploymentGroup"
+    Type: AWS::CodeDeploy::DeploymentGroup
     Properties:
       ApplicationName:
         Fn::ImportValue:
@@ -49,6 +49,9 @@ Resources:
             Fn::ImportValue:
               !Sub "${SharedResourceStack}:WorkshopName"
           PropagateAtLaunch: true
+    UpdatePolicy:
+      AutoScalingReplacingUpdate:
+        WillReplace: true
 
   LoadBalancerListener:
     Type: AWS::ElasticLoadBalancingV2::Listener
