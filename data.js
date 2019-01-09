@@ -4,7 +4,7 @@ var data = [
     "questions": [
       {
         "points": 100,
-        "question":"When tended to forget that no computer will ever ask a ______ question.",
+        "question":"We tend to forget that no computer will ever ask a ______ question.",
         "answer": "new"
       },
       {
