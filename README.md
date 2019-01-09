@@ -39,9 +39,13 @@ Once the deployment completes, go to the application URL:
 aws cloudformation describe-stacks --stack-name ghc-workshop-application-1 --query 'Stacks[0].Outputs[?OutputKey==`Url`].OutputValue' --output text
 ```
 
-Clean up:
+Cleanup:
 ```
-TBC
+Delete Stacks:
+
+aws cloudformation delete-stack --stack-name ghc-workshop-shared-resources
+
+aws cloudformation delete-stack --stack-name ghc-workshop-application-1
 ```
 
 ## Credits
