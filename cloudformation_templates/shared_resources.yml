@@ -1,3 +1,4 @@
+
 Description:
   This template sets up the shared resources for the workshop, including a VPC
   and a CodeDeploy application. Only one stack of this template should be
@@ -65,7 +66,8 @@ Resources:
               -
                 Effect: "Allow"
                 Action: "s3:getObject"
-                Resource: !Sub arn:aws:s3:::${DeploymentBucket}/*
+                Resource:
+                  - !Sub arn:aws:s3:::*codepipeline*
         -
           PolicyName: "allow-logging"
           PolicyDocument:
