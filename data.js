@@ -6,7 +6,7 @@ var data = [
       {
         "points": 100,
         "question": "It's easier to ask forgiveness than it is _______________",
-        "answer": "this is awesome stuff..."
+        "answer": "branches are awesome..."
       },
       {
         "points": 200,
