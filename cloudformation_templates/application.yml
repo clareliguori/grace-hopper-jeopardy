@@ -17,7 +17,6 @@ Parameters:
     Default: ha-king
   GitHubToken:
     Type: String
-    Default: 2a4d0ac073cba52f604f80b8316f8c14cb70ac31
   SharedResourceStack:
     Description: Name of an active CloudFormation stack that contains the shared workshop resources, such as the VPC.
     Type: String
