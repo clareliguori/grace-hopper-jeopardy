@@ -1,3 +1,4 @@
+
 var data = [
   {
     "category": "Quotes",
@@ -5,7 +6,7 @@ var data = [
       {
         "points": 100,
         "question": "It's easier to ask forgiveness than it is _______________",
-        "answer": "To get some code working..."
+        "answer": "To get some teams to use best-practice..."
       },
       {
         "points": 200,
