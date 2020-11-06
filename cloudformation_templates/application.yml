@@ -75,7 +75,7 @@ Resources:
           MatchEquals: 'refs/heads/{Branch}'
       TargetPipeline: !Ref AppPipeline
       TargetAction: SourceAction
-      Name: AppPipelineWebhook
+      Name: !Sub AppPipelineWebhook-${BranchName}
       TargetPipelineVersion: !GetAtt 
         - AppPipeline
         - Version
@@ -83,7 +83,7 @@ Resources:
   AppPipeline:
     Type: 'AWS::CodePipeline::Pipeline'
     Properties:
-      Name: github-events-pipeline
+      Name: !Sub BranchName
       RoleArn: !GetAtt 
         - CodePipelineServiceRole
         - Arn
