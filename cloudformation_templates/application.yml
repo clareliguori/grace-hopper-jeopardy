@@ -83,7 +83,7 @@ Resources:
   AppPipeline:
     Type: 'AWS::CodePipeline::Pipeline'
     Properties:
-      Name: !Sub BranchName
+      Name: !Ref BranchName
       RoleArn: !GetAtt 
         - CodePipelineServiceRole
         - Arn
