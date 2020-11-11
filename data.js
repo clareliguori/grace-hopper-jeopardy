@@ -5,8 +5,8 @@ var data = [
     "questions": [
       {
         "points": 100,
-        "question": "It's easier to ask forgiveness than it is _______________",
-        "answer": "branches are awesome..."
+        "question": "It's easier to ask CopePipeline than it is _______________",
+        "answer": "to use CircleCI."
       },
       {
         "points": 200,
