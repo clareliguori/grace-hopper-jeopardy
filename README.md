@@ -12,8 +12,8 @@ Then open index.html in your browser.
 ## Deploy on AWS
 
 * Local bash terminal
-* Cloud9
-* AWS Console via CloudFormation 
+* <a href="https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2">Cloud9</a> Oregon
+* <a href="https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2">CloudFormation</a> Oregon
 
 This application can be deployed to Amazon EC2 using AWS CloudFormation and AWS CodeDeploy.  It can be used as an example application in a workshop, with multiple stacks in the same account.
 
