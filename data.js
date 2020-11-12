@@ -6,7 +6,7 @@ var data = [
       {
         "points": 100,
         "question": "It's easier to ask CopePipeline than it is _______________",
-        "answer": "to use CircleCI."
+        "answer": "to configure/manage new infrastructure."
       },
       {
         "points": 200,
