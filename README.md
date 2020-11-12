@@ -11,6 +11,10 @@ Then open index.html in your browser.
 
 ## Deploy on AWS
 
+* Local bash terminal
+* Cloud9
+* AWS Console via CloudFormation 
+
 This application can be deployed to Amazon EC2 using AWS CloudFormation and AWS CodeDeploy.  It can be used as an example application in a workshop, with multiple stacks in the same account.
 
 Create shared resources (create once):
@@ -35,6 +39,8 @@ aws cloudformation describe-stacks --stack-name ghc-workshop-application-1 --que
 
 Cleanup:
 ```
+Delete S3 objects for CodeSuite before deleting CloudFormation stacks
+
 Delete Stacks:
 
 aws cloudformation delete-stack --stack-name ghc-workshop-shared-resources
