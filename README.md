@@ -5,10 +5,10 @@ This solution demonstrates multiple best-practices for building a NodeJS web app
 ## Run locally
 
 Run the following:
-
+```
     npm install
     npm run webpack
-
+```
 Then open index.html in your browser.
 
 ## Deploy on AWS
@@ -28,10 +28,11 @@ This application is deployed using AWS CloudFormation.
 * GitHubUser
 
 ##### This solution require Shared Resource stack to be deployed as primary stack, then Applicaiton stack.
-Note: 
- 
-1. Deploy Shared Resources - <a href="https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=ghc-workshop-shared-resources&templateURL=https://inf-training-resources.s3.amazonaws.com/grace-hopper-jeopardy/shared_resources.yml" target="_blank">![Launch](./img/launch-stack.png?raw=true "Launch")</a>
-1. Deploy Application - <a href="https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=ghc-workshop-application&templateURL=https://inf-training-resources.s3.amazonaws.com/grace-hopper-jeopardy/application.yml" target="_blank">![Launch](./img/launch-stack.png?raw=true "Launch")</a>
+
+|Stacks          |Deploy|
+|----------------|------|
+|Shared Resources| <a href="https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=ghc-workshop-shared-resources&templateURL=https://inf-training-resources.s3.amazonaws.com/grace-hopper-jeopardy/shared_resources.yml" target="_blank">![Launch](./img/launch-stack.png?raw=true "Launch")</a>|
+|Application     |<a href="https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=ghc-workshop-application&templateURL=https://inf-training-resources.s3.amazonaws.com/grace-hopper-jeopardy/application.yml" target="_blank">![Launch](./img/launch-stack.png?raw=true "Launch")</a>|
 
 #### Additional Deployment scenarios:
 * Local bash terminal
