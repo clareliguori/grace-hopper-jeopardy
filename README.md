@@ -24,7 +24,7 @@ This application is deployed using AWS CloudFormation.
 #### CloudFormation Parameters: (required)
 GitHubRepo
 GitHubBranch
-GitHubToken (do not commit this value)
+GitHubToken (never commit this value)
 GitHubUser
 
 ##### This solution require Shared Resource stack to be deployed as primary stack, then Applicaiton stack.
