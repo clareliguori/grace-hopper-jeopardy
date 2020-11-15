@@ -22,10 +22,10 @@ https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/
 This application is deployed using AWS CloudFormation.
 
 #### CloudFormation Parameters: (required)
-GitHubRepo
-GitHubBranch
-GitHubToken (never commit this value)
-GitHubUser
+* GitHubRepo
+* GitHubBranch
+* GitHubToken (never commit this value)
+* GitHubUser
 
 ##### This solution require Shared Resource stack to be deployed as primary stack, then Applicaiton stack.
 Note: 
