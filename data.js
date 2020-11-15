@@ -5,7 +5,7 @@ var data = [
     "questions": [
       {
         "points": 100,
-        "question": "It's easier to ask CopePipeline than it is _______________",
+        "question": "It's easier to deploy CopePipeline(s) than it is _______________",
         "answer": "to configure/manage new infrastructure."
       },
       {
