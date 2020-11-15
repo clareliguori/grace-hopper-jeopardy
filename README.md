@@ -34,7 +34,7 @@ This application is deployed using AWS CloudFormation.
 |Shared Resources| <a href="https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=ghc-workshop-shared-resources&templateURL=https://inf-training-resources.s3.amazonaws.com/grace-hopper-jeopardy/shared_resources.yml" target="_blank">![Launch](./img/launch-stack.png?raw=true "Launch")</a>|
 |Application     |<a href="https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=ghc-workshop-application&templateURL=https://inf-training-resources.s3.amazonaws.com/grace-hopper-jeopardy/application.yml" target="_blank">![Launch](./img/launch-stack.png?raw=true "Launch")</a>|
 
-#### Additional Deployment scenarios:
+#### AWSCLI Deployment scenarios:
 * Local bash terminal
 * <a href="https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2">Cloud9</a> (Oregon)
 * <a href="https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2">Cloud9</a> (Oregon)
@@ -51,9 +51,9 @@ Create website resources (can create multiple stacks for a workshop):
 aws cloudformation deploy --stack-name ghc-workshop-application-1 --template-file cloudformation_templates/application.yml --parameter-overrides SharedResourceStack="ghc-workshop-shared-resources"
 ```
 
-Go to the CodeDeploy console:
+Go to the CodePipeline console:
 ```
-aws cloudformation describe-stacks --stack-name ghc-workshop-shared-resources --query 'Stacks[0].Outputs[?OutputKey==`CodeDeployUrl`].OutputValue' --output text
+https://console.aws.amazon.com/codesuite/codepipeline/pipelines
 ```
 
 Once the deployment completes, go to the application URL:
@@ -61,12 +61,10 @@ Once the deployment completes, go to the application URL:
 aws cloudformation describe-stacks --stack-name ghc-workshop-application-1 --query 'Stacks[0].Outputs[?OutputKey==`Url`].OutputValue' --output text
 ```
 
-Cleanup:
+#### Cleanup:
+1. Delete S3 objects for CodeSuite before deleting CloudFormation stacks
+1. Delete Stacks:
 ```
-Delete S3 objects for CodeSuite before deleting CloudFormation stacks
-
-Delete Stacks:
-
 aws cloudformation delete-stack --stack-name ghc-workshop-shared-resources
 
 aws cloudformation delete-stack --stack-name ghc-workshop-application-1
