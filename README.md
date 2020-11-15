@@ -13,11 +13,27 @@ Then open index.html in your browser.
 
 ## Deploy on AWS
 
-AWS Console
+#### Note:
+Create a Personal Access Token for your Github account for the AWS webhook.
+
+#### Link:
+https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token
+
+This application is deployed using AWS CloudFormation.
+
+#### CloudFormation Parameters: (required)
+GitHubRepo
+GitHubBranch
+GitHubToken (do not commit this value)
+GitHubUser
+
+##### This solution require Shared Resource stack to be deployed as primary stack, then Applicaiton stack.
+Note: 
+ 
 1. Deploy Shared Resources - <a href="https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=ghc-workshop-shared-resources&templateURL=https://inf-training-resources.s3.amazonaws.com/grace-hopper-jeopardy/shared_resources.yml" target="_blank">![Launch](./img/launch-stack.png?raw=true "Launch")</a>
-1. Deploy Application Version - <a href="https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=ghc-workshop-application&templateURL=https://inf-training-resources.s3.amazonaws.com/grace-hopper-jeopardy/application.yml" target="_blank">![Launch](./img/launch-stack.png?raw=true "Launch")</a>
+1. Deploy Application - <a href="https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=ghc-workshop-application&templateURL=https://inf-training-resources.s3.amazonaws.com/grace-hopper-jeopardy/application.yml" target="_blank">![Launch](./img/launch-stack.png?raw=true "Launch")</a>
 
-
+#### Additional Deployment scenarios:
 * Local bash terminal
 * <a href="https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2">Cloud9</a> (Oregon)
 * <a href="https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2">Cloud9</a> (Oregon)
