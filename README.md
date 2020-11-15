@@ -13,7 +13,10 @@ Then open index.html in your browser.
 
 ## Deploy on AWS
 
-* <a href="https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=ghc-workshop&templateURL=https://s3.amazonaws.com/inf-training-resources/grace-hopper-jeopardy/cloudformation-templates/shared-resources.yml" target="_blank">![Launch](./img/launch-stack.png?raw=true "Launch")</a>
+AWS Console
+1. Deploy Shared Resources - <a href="https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=ghc-workshop&templateURL=https://s3.amazonaws.com/inf-training-resources/grace-hopper-jeopardy/cloudformation-templates/shared-resources.yml" target="_blank">![Launch](./img/launch-stack.png?raw=true "Launch")</a>
+1. Deploy Application Version - <a href="https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=ghc-workshop&templateURL=https://s3.amazonaws.com/inf-training-resources/grace-hopper-jeopardy/cloudformation-templates/application.yml" target="_blank">![Launch](./img/launch-stack.png?raw=true "Launch")</a>
+
 
 * Local bash terminal
 * <a href="https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2">Cloud9</a> (Oregon)
