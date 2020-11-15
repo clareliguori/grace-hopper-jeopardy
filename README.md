@@ -1,5 +1,7 @@
 # Grace Hopper Jeopardy
 
+This solution demonstrates multiple best-practices for building a NodeJS web application for Grace Hopper Jeopardy trivia game.
+
 ## Run locally
 
 Run the following:
@@ -11,13 +13,13 @@ Then open index.html in your browser.
 
 ## Deploy on AWS
 
+*<a href="https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=ghc-workshop&templateURL=https://s3.amazonaws.com/inf-training-resources/grace-hopper-jeopardy/cloudformation-templates/shared-resources.yml” target="_blank">![Launch](./img/launch-stack.png?raw=true "Launch")</a>
+
 * Local bash terminal
 * <a href="https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2">Cloud9</a> (Oregon)
 * <a href="https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2">Cloud9</a> (Oregon)
-* <a href="https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1">CloudFormation</a> (N.Virginia)
-* <a href="https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1">CloudFormation</a> (N.Virginia)
 
-This application can be deployed to Amazon EC2 using AWS CloudFormation and AWS CodeDeploy.  It can be used as an example application in a workshop, with multiple stacks in the same account.
+This application will be deployed on EC2 Autoscaling Group nodes working behind an Application Load Balancer. It can be used as an example application in a workshop, with multiple stacks in the same account.
 
 Create shared resources (create once):
 ```
