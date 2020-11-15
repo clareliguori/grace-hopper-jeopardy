@@ -7,14 +7,12 @@ Parameters:
   BranchName:
     Description: GitHub branch name
     Type: String
-    Default: master
   RepositoryName:
     Description: GitHub repository name
     Type: String
     Default: grace-hopper-jeopardy
   GitHubOwner:
     Type: String
-    Default: ha-king
   GitHubToken:
     Type: String
   SharedResourceStack:
