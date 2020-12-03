@@ -4,12 +4,16 @@ This solution demonstrates multiple best-practices for building a NodeJS web app
 ---
 ## Run locally
 
+Open index.html in your browser.
+
+#### To eebuild
 Run the following:
 ```
     npm install
     npm run webpack
 ```
 Then open index.html in your browser.
+
 ---
 ## Create Github personal access token
 
